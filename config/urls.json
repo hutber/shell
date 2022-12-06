@@ -1,3 +1,4 @@
 {
-  "api": "//127.0.0.1:4010/"
+  "api": "//127.0.0.1:4010/",
+  "enodeOauth": "https://link.sandbox.enode.io/?link_state=YWJjZDEyMzRAMGJiNGM3NGYtNDYxZC00MGFiLWI5NTQtY2NlNjVhNjc5ODA4OjAzMWFmZTE5OGNiNTM5ODk0MTczZDEwOTQ5ODQxNDY1MDAxMTYxZjI5OGQ4ZTU0ODQ1ZTY1NTIyMWRkMjJjMGY%3D&requested_scope=all&redirect_uri=about%3Ablank"
 }

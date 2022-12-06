@@ -1,0 +1,15 @@
+.encodePopup {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #00000069;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.encodePopup iframe {
+    border: 0;
+    height: 740px;
+    width: 500px;
+}

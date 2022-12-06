@@ -1,8 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { axios } from "../utils/axios";
 import {useEffect} from "react";
+import Image from 'next/image'
+
+import { axios } from "utils/axios";
+import EncodePopup from "components/EnodePopup";
+
+import styles from 'styles/Home.module.css'
 
 export default function Home() {
     const getData = async () => {
@@ -13,6 +16,8 @@ export default function Home() {
         console.info('hutber', {jamie})
     }, [])
 
+
+
     return (
         <div className={styles.container}>
             <Head>
@@ -22,6 +27,7 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
+                <EncodePopup />
                 <h3>Hello Antonio</h3>
                 <p>Your Shell Energy account number<span>123456789</span></p>
                 <h2>2 steps to charge your EV</h2>
@@ -41,7 +47,7 @@ export default function Home() {
                 </ul>
                 <h3>Charge your EV</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquamLorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam</p>
-                <a href="/location" >Get started at Enode</a>
+                <button>Get started at Enode</button>
             </main>
 
             <footer className={styles.footer}>
