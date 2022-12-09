@@ -6,14 +6,15 @@ import { axios } from "utils/axios";
 import EncodePopup from "components/EnodePopup";
 
 import styles from 'styles/Home.module.css'
+import config from "config";
 
 export default function Home() {
     const getData = async () => {
-        return await axios({url: 'http://127.0.0.1:4010/onboardingStatus'})
+        const data = await axios({url: `${config.urls.api}onboardingStatus`})
+        console.info(data)
     }
     useEffect(() => {
-        const jamie = getData()
-        console.info('hutber', {jamie})
+        getData()
     }, [])
 
 
