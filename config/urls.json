@@ -1,5 +1,5 @@
 {
-  "root": "http://localhost:3002",
+  "root": "http://localhost:3000",
   "api": "//127.0.0.1:4010/",
-  "enodeOauth": "https://link.sandbox.enode.io/?link_state=YWJjZDEyMzRAMGJiNGM3NGYtNDYxZC00MGFiLWI5NTQtY2NlNjVhNjc5ODA4OmFmOWRkYWRkNmNiNDM1OGE3OTA5N2ZmMTBhMjJkMTNlYmMxOGYxYzVkNWVhMDQ3OGQyMzYwZTA4ZWQ1ZGJkN2Y%3D&requested_scope=all&redirect_uri=http%3A%2F%2Flocalhost%3A3002%2Fenode_finished"
+  "enodeOauth": "https://link.sandbox.enode.io/?link_state=YWJjZDEyMzRAMGJiNGM3NGYtNDYxZC00MGFiLWI5NTQtY2NlNjVhNjc5ODA4OjQyMjdjZDFmOGY0MzA1MzI2MDQzNTVhMjdlNzRkMDIyOTFhZGEzYThlZmViOWE5M2UzMzBhNmE2YzQ3NmM2M2M%3D&requested_scope=all&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fenode_finished"
 }

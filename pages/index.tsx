@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Image from 'next/image'
 
 import { axios } from "utils/axios";
@@ -9,9 +9,9 @@ import styles from 'styles/Home.module.css'
 import config from "config";
 
 export default function Home() {
+    const [displayEnodeWindow, setDisplayEnodeWindow] = useState(false)
     const getData = async () => {
         const data = await axios({url: `${config.urls.api}onboardingStatus`})
-        console.info(data)
     }
     useEffect(() => {
         getData()
@@ -28,7 +28,7 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                <EncodePopup />
+                <EncodePopup show={displayEnodeWindow} setShow={setDisplayEnodeWindow} />
                 <h3>Hello Antonio</h3>
                 <p>Your Shell Energy account number<span>123456789</span></p>
                 <h2>2 steps to charge your EV</h2>
@@ -48,7 +48,9 @@ export default function Home() {
                 </ul>
                 <h3>Charge your EV</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquamLorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam</p>
-                <button>Get started at Enode</button>
+                <button onClick={() => {
+                    setDisplayEnodeWindow(true)
+                }}>Get started at Enode</button>
             </main>
 
             <footer className={styles.footer}>
