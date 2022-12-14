@@ -1,4 +1,4 @@
-function base64url(source) {
+function base64url(source: string) {
     // Encode in classical base64
     let encodedSource = btoa(source);
 
@@ -12,7 +12,7 @@ function base64url(source) {
     return encodedSource;
 }
 
-export default function getIdToken(){
+function generateIdToken(){
     const header = {
         "alg": "HS256",
         "typ": "JWT"
@@ -29,4 +29,18 @@ export default function getIdToken(){
     const encodedData = base64url(stringifiedData);
 
     return encodedHeader + "." + encodedData;
+}
+
+
+export default function getIdToken(){
+    const currentLocalSessionId = sessionStorage.getItem('idToken')
+    if(currentLocalSessionId) {
+        return currentLocalSessionId
+    } else {
+        sessionStorage.clear();
+        //pretend refresh from congito
+        const currentSessionToken = generateIdToken()
+        sessionStorage.setItem('idToken', currentSessionToken)
+        return currentSessionToken
+    }
 }

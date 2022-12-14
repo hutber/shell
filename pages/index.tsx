@@ -7,11 +7,15 @@ import EncodePopup from "components/EnodePopup";
 
 import styles from 'styles/Home.module.css'
 import config from "config";
+import getIdToken from "utils/get_id_token";
 
 export default function Home() {
     const [displayEnodeWindow, setDisplayEnodeWindow] = useState(false)
     const getData = async () => {
         const data = await axios({url: `${config.urls.api}onboardingStatus`})
+    }
+    const enodeConnect = async () => {
+        const data = await axios({url: `${config.urls.api}connect`})
     }
     useEffect(() => {
         getData()
@@ -48,6 +52,7 @@ export default function Home() {
                 <h3>Charge your EV</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquamLorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam</p>
                 <button onClick={() => {
+                    enodeConnect()
                     setDisplayEnodeWindow(true)
                 }}>Get started at Enode</button>
             </main>

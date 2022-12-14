@@ -1,5 +1,6 @@
 import { default as RQAxios } from 'axios'
 import config from '../config/urls.json'
+import getIdToken from "utils/get_id_token";
 
 export const axios = async ({
     url = `${config.api}`,
@@ -8,9 +9,7 @@ export const axios = async ({
     headers = {}
 }) => {
     try {
-        //Assign session token to variable
-        const currentlyActiveSessionToken = sessionStorage.token;
-        if (sessionStorage.token === 'undefined') sessionStorage.clear();
+        const currentlyActiveSessionToken = getIdToken()
 
         //Build up the object that is passed to fetch api
         let fetchObject = {
@@ -19,7 +18,7 @@ export const axios = async ({
             method,
             headers: {
                 Accept: 'application/json',
-                Authorization: `Bearer ${sessionStorage.token}`,
+                Authorization: `Bearer ${currentlyActiveSessionToken}`,
                 'Content-Type': 'application/json',
                 ...headers
             }
