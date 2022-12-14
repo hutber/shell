@@ -30,7 +30,6 @@ export default function Home() {
             <main className={styles.main}>
                 <EncodePopup show={displayEnodeWindow} setShow={setDisplayEnodeWindow} />
                 <h3>Hello Antonio</h3>
-                <p>Your Shell Energy account number<span>123456789</span></p>
                 <h2>2 steps to charge your EV</h2>
                 <ul>
                     <li>

@@ -29,6 +29,26 @@ button {
   padding: 10px 14px;
 }
 
-.encodePopup {
+.loading {
 
+}
+
+h4 {
+  margin: 5px;
+}
+
+.buttonContainer {
+  margin-top: 15px;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  background: #FBCF09;
+  color: #404040;
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 300px;
+  margin-bottom: 5px;
+  display: block;
 }

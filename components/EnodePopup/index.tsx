@@ -10,9 +10,15 @@ interface EncodePopup {
 
 export default function EncodePopup({show = false, setShow}: EncodePopup) {
     const iframeRef = React.createRef();
-    if(typeof iframeRef !== "null" && typeof window !== typeof undefined) {
+    if(iframeRef && typeof window !== typeof undefined) {
         window.addEventListener("message", (event) => {
-            setShow(!event.isTrusted)
+            console.info(event)
+            if(!event.isTrusted){
+                setShow(false)
+            }else {
+                console.info('forward')
+                window.location.href='/enode_connection_status_check'
+            }
             if (event.origin !== config.urls.root)
                 return;
         }, false)
@@ -21,7 +27,7 @@ export default function EncodePopup({show = false, setShow}: EncodePopup) {
     if (!show) return null
     return (
         <div className={styles.encodePopup}>
-            <iframe src={config.urls.enodeOauth} ref={iframeRef}/>
+            <iframe src={`${config.enode.enodeOauth}${config.enode.enodeOauthLinkState}${config.enode.enodeOauthScope}${config.enode.enodeOauthRedirect}`} ref={iframeRef}/>
         </div>
     )
 }
