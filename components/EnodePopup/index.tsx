@@ -5,19 +5,17 @@ import styles from 'styles/EncodePopup.module.css'
 
 interface EncodePopup {
     show?: boolean
-    setShow: (showHide: Boolean) => {}
+    setShow: () => void
 }
 
 export default function EncodePopup({show = false, setShow}: EncodePopup) {
-    const iframeRef = React.createRef();
-    if(iframeRef && typeof window !== typeof undefined) {
+    if(typeof window !== typeof undefined) {
         window.addEventListener("message", (event) => {
-            console.info(event)
             if(!event.isTrusted){
-                setShow(false)
+                setShow()
             }else {
                 console.info('forward')
-                window.location.href='/enode_connection_status_check'
+                window.location.href=config.urls.connectedToEncode
             }
             if (event.origin !== config.urls.root)
                 return;
@@ -27,7 +25,7 @@ export default function EncodePopup({show = false, setShow}: EncodePopup) {
     if (!show) return null
     return (
         <div className={styles.encodePopup}>
-            <iframe src={`${config.enode.enodeOauth}${config.enode.enodeOauthLinkState}${config.enode.enodeOauthScope}${config.enode.enodeOauthRedirect}`} ref={iframeRef}/>
+            <iframe src={`${config.enode.enodeOauth}${config.enode.enodeOauthLinkState}${config.enode.enodeOauthScope}${config.enode.enodeOauthRedirect}${config.urls.iframeCompleted}`}/>
         </div>
     )
 }

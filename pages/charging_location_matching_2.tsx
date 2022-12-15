@@ -8,13 +8,14 @@ import config from "config";
 import Link from "next/link";
 import getIdToken from "utils/get_id_token";
 
-export default function PleaseParkAtHome() {
+export default function ChargingLocationMatching_2() {
     const [queryData, setQueryData] = useState(null)
     const getData = async () => {
         const id_token = getIdToken();
-        const data = await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
+        const data = await axios({url: `${config.urls.api}vehicleLocation`, body: {
                 id_token
             }})
+        // @ts-ignore
         setQueryData(data.data)
     }
     useEffect(() => {
@@ -28,8 +29,13 @@ export default function PleaseParkAtHome() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.main}>
-            <h2>Please park your vehicle at your home charging location, please continue when ready</h2>
-            <Link href={`/setup_charging_location_part_2`} passHref legacyBehavior><button>Ready</button></Link>
+            <h2>Your charging location is:</h2>
+            <h4>Lat: {queryData.location.latitude}</h4>
+            <h4>Long: {queryData.location.longitude}</h4>
+            <div className="buttonContainer">
+                <Link href={config.urls.complete} passHref legacyBehavior><button>Confirm</button></Link>
+                <Link href={config.urls.chargingLocationMatching} passHref legacyBehavior><button>Retry</button></Link>
+            </div>
         </main>
     </div> : <Loading />
 }

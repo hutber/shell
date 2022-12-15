@@ -1,6 +1,6 @@
 {
   "enodeOauthScope": "&requested_scope=all",
-  "enodeOauthLinkState": "YWJjZDEyMzRAMGJiNGM3NGYtNDYxZC00MGFiLWI5NTQtY2NlNjVhNjc5ODA4OjBjZDI5NTM5NzJiMTExMjUxMDkyNzdkMGJlN2RmNDRmMWVlNjA0OGQ1YzNiOGJiOGRiOWJkMDFmZjgzMzRhNmQ=",
-  "enodeOauthRedirect": "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fenode_finished",
+  "enodeOauthLinkState": "YWJjZDEyMzRAMGJiNGM3NGYtNDYxZC00MGFiLWI5NTQtY2NlNjVhNjc5ODA4OjMwZWEwOTc2NTU4NjI3Y2RkOGNjYTM2OWMxYzMyYWFjYTJhZjE5OWNjMTc2YmVhZGZiNWZlNjAwNzk1NGI2YWE=",
+  "enodeOauthRedirect": "&redirect_uri=http%3A%2F%2Flocalhost%3A3002%2F",
   "enodeOauth": "https://link.sandbox.enode.io?link_state="
 }

@@ -7,10 +7,9 @@ import EncodePopup from "components/EnodePopup";
 
 import styles from 'styles/Home.module.css'
 import config from "config";
-import getIdToken from "utils/get_id_token";
 
 export default function Home() {
-    const [displayEnodeWindow, setDisplayEnodeWindow] = useState(false)
+    const [displayEnodeWindow, setDisplayEnodeWindow] = useState<boolean>(false)
     const getData = async () => {
         const data = await axios({url: `${config.urls.api}onboardingStatus`})
     }
@@ -32,7 +31,9 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                <EncodePopup show={displayEnodeWindow} setShow={setDisplayEnodeWindow} />
+                <EncodePopup show={displayEnodeWindow} setShow={() => {
+                    setDisplayEnodeWindow(false)
+                }} />
                 <h3>Hello Antonio</h3>
                 <h2>2 steps to charge your EV</h2>
                 <ul>

@@ -1,16 +1,8 @@
-import {useEffect, useState} from "react";
 import Head from 'next/head'
-import Image from 'next/image'
 
 import styles from 'styles/Home.module.css'
-import Loading from 'components/Loading'
-import {axios} from "utils/axios";
-import config from "config";
-import Link from "next/link";
-import getIdToken from "utils/get_id_token";
 
-export default function Home() {
-
+export default function Complete() {
     return <div>
         <Head>
             <title>Create Next App</title>

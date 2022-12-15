@@ -15,6 +15,7 @@ export default function YourVehicle() {
         const data = await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
                 id_token
             }})
+        // @ts-ignore
         setQueryData(data.data)
     }
     useEffect(() => {

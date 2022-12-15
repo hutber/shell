@@ -1,19 +1,21 @@
-import {useEffect, useState} from "react";
+import { useEffect } from "react";
 import Head from 'next/head'
 import config from "config";
-import Link from "next/link";
 
 import styles from 'styles/Home.module.css'
-import Loading from 'components/Loading'
 import {axios} from "utils/axios";
 import getIdToken from "utils/get_id_token";
 
-export default function YourVehicle() {
+export default function VehicleMatching() {
     const getData = async () => {
         const id_token = getIdToken();
-        await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
+        const data = await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
                 id_token
             }})
+        // @ts-ignore
+        if(data?.status === 200) {
+            window.location.href=config.urls.chargingLocationMatching
+        }
     }
     useEffect(() => {
         getData()
@@ -26,9 +28,7 @@ export default function YourVehicle() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.main}>
-            <h2>Successfully connected to ENode, now lets check your vehicle</h2>
-            <Link href={`/your_vehicle`} passHref legacyBehavior><button>Continue</button></Link>
-            <Link href={`/`} passHref legacyBehavior><button>Something went wrong</button></Link>
+            <h2>Fetching your vehicle...</h2>
         </main>
     </div>
 }

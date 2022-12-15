@@ -1,7 +1,7 @@
 import styles from 'styles/EncodePopup.module.css'
 import { useRouter } from "next/router";
 
-export default function EnodeFinished() {
+export default function IFrameCompleted() {
     const router = useRouter()
     if (typeof window !== typeof undefined) {
         console.info('hutber', {router, query: router.query})
