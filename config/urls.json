@@ -1,12 +1,12 @@
 {
-  "root": "http://localhost:3002",
-  "home": "/home",
+  "root": "http://localhost:3000",
   "api": "//127.0.0.1:4010/",
   "iframeCompleted": "/iframe_completed",
-  "vehicleMatching": "/vehice_matching",
-  "yourVehicle": "/your_vehicle",
-  "chargingLocationMatching": "/charging_location_matching",
-  "chargingLocationMatching_2": "/charging_location_matching_2",
-  "connectedToEncode": "/connected_to_enode",
-  "complete": "/complete"
+  "home": "/1_home",
+  "connectedToEncode": "/2_connected_to_enode",
+  "vehicleMatching": "/3_vehicle_matching",
+  "yourVehicle": "/4_your_vehicle",
+  "chargingLocationMatching": "/5_charging_location_matching",
+  "chargingLocationMatching_2": "/6_charging_location_matching_2",
+  "complete": "/7_complete"
 }

@@ -14,7 +14,7 @@ export default function ConnectedToEncode() {
         <main className={styles.main}>
             <h2>Successfully connected to ENode, now lets check your vehicle</h2>
             <Link href={config.urls.vehicleMatching} passHref legacyBehavior><button>Continue</button></Link>
-            <Link href={config.urls.root} passHref legacyBehavior><button>Something went wrong</button></Link>
+            <Link href={config.urls.home} passHref legacyBehavior><button>Something went wrong</button></Link>
         </main>
     </div>
 }

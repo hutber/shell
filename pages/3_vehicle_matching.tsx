@@ -14,7 +14,7 @@ export default function VehicleMatching() {
             }})
         // @ts-ignore
         if(data?.status === 200) {
-            window.location.href=config.urls.chargingLocationMatching
+            window.location.href=config.urls.yourVehicle
         }
     }
     useEffect(() => {

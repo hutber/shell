@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import {useEffect, useState} from "react";
-import Image from 'next/image'
 
 import { axios } from "utils/axios";
 import EncodePopup from "components/EnodePopup";
@@ -10,6 +9,7 @@ import config from "config";
 
 export default function Home() {
     const [displayEnodeWindow, setDisplayEnodeWindow] = useState<boolean>(false)
+    //TODO - do a data check to see if the user has successfully onboarded, if they haven't stay on page
     const getData = async () => {
         const data = await axios({url: `${config.urls.api}onboardingStatus`})
     }
@@ -65,7 +65,6 @@ export default function Home() {
                     rel="noopener noreferrer"
                 >
                     Powered by <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
                 </a>
             </footer>

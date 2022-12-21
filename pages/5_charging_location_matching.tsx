@@ -26,7 +26,6 @@ export default function ChargingLocationMatching_2() {
         const { data } = await axios({url: `${config.urls.api}vehicleLocation`, body: {
                 id_token
             }}) as IChargingLocationMatching_2
-        // @ts-ignore
         setQueryData(data)
     }
     useEffect(() => {
@@ -45,7 +44,7 @@ export default function ChargingLocationMatching_2() {
             <h4>Long: {queryData?.location?.longitude}</h4>
             <div className="buttonContainer">
                 <Link href={config.urls.complete} passHref legacyBehavior><button>Confirm</button></Link>
-                <Link href={config.urls.chargingLocationMatching} passHref legacyBehavior><button>Retry</button></Link>
+                <Link href={config.urls.yourVehicle} passHref legacyBehavior><button>Retry</button></Link>
             </div>
         </main>
     </div> : <Loading />

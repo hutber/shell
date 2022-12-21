@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 export default function IFrameCompleted() {
     const router = useRouter()
     if (typeof window !== typeof undefined) {
-        console.info('hutber', {router, query: router.query})
         // @ts-ignore
         localStorage.setItem('auth', JSON.stringify(router?.query))
         setTimeout(() => {

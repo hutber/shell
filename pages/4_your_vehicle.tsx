@@ -28,9 +28,7 @@ export default function YourVehicle() {
         const { data } = await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
                 id_token
             }}) as IYourVehicle
-        console.info(data)
-        // @ts-ignore
-        setQueryData(data.data)
+        setQueryData(data)
     }
     useEffect(() => {
         getData()
@@ -47,7 +45,7 @@ export default function YourVehicle() {
             <h4>Brand: {queryData?.vehicle?.brand}</h4>
             <h4>Model: {queryData?.vehicle?.model}</h4>
             <h4>Year: {queryData?.vehicle?.year}</h4>
-            <Link href={`/setup_charging_location_part_1`} passHref legacyBehavior><button>Setup Charging Location</button></Link>
+            <Link href={config.urls.chargingLocationMatching} passHref legacyBehavior><button>Setup Charging Location</button></Link>
         </main>
     </div> : <Loading />
 }
