@@ -8,13 +8,27 @@ import config from "config";
 import Link from "next/link";
 import getIdToken from "utils/get_id_token";
 
+type TVehicle = {
+    vehicle: {
+        brand: string;
+        model: string;
+        year: string;
+    } | null
+}
+
+interface IYourVehicle {
+    data: TVehicle
+}
+
+
 export default function YourVehicle() {
-    const [queryData, setQueryData] = useState(null)
+    const [queryData, setQueryData] = useState<TVehicle>()
     const getData = async () => {
         const id_token = getIdToken();
-        const data = await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
+        const { data } = await axios({url: `${config.urls.api}associateVehicle`, method: 'POST', body: {
                 id_token
-            }})
+            }}) as IYourVehicle
+        console.info(data)
         // @ts-ignore
         setQueryData(data.data)
     }

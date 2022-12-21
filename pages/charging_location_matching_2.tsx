@@ -4,19 +4,30 @@ import Head from 'next/head'
 import styles from 'styles/Home.module.css'
 import Loading from 'components/Loading'
 import {axios} from "utils/axios";
-import config from "config";
+import config, {OnboardingStatus} from "config";
 import Link from "next/link";
 import getIdToken from "utils/get_id_token";
 
+type TLocation = {
+    location: {
+        latitude: string;
+        longitude: string
+    } | null
+}
+
+interface IChargingLocationMatching_2 {
+    data: TLocation
+}
+
 export default function ChargingLocationMatching_2() {
-    const [queryData, setQueryData] = useState(null)
+    const [queryData, setQueryData] = useState<TLocation>()
     const getData = async () => {
         const id_token = getIdToken();
-        const data = await axios({url: `${config.urls.api}vehicleLocation`, body: {
+        const { data } = await axios({url: `${config.urls.api}vehicleLocation`, body: {
                 id_token
-            }})
+            }}) as IChargingLocationMatching_2
         // @ts-ignore
-        setQueryData(data.data)
+        setQueryData(data)
     }
     useEffect(() => {
         getData()
@@ -30,8 +41,8 @@ export default function ChargingLocationMatching_2() {
         </Head>
         <main className={styles.main}>
             <h2>Your charging location is:</h2>
-            <h4>Lat: {queryData.location.latitude}</h4>
-            <h4>Long: {queryData.location.longitude}</h4>
+            <h4>Lat: {queryData?.location?.latitude}</h4>
+            <h4>Long: {queryData?.location?.longitude}</h4>
             <div className="buttonContainer">
                 <Link href={config.urls.complete} passHref legacyBehavior><button>Confirm</button></Link>
                 <Link href={config.urls.chargingLocationMatching} passHref legacyBehavior><button>Retry</button></Link>
